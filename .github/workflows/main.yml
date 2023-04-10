@@ -24,16 +24,7 @@ jobs:
       - name: "🔧 install npm@latest"
         run: npm i -g npm@latest
 
-      - name: "🚀 static app"
-        run: npm run build
-
-      - name: "📂 production artifacts"
-        uses: actions/upload-artifact@v2
-        with:
-          name: build
-          path: build
-
-    
+     
   release:
     environment:
       name: production
