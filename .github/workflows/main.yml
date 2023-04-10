@@ -24,9 +24,6 @@ jobs:
       - name: "🔧 install npm@latest"
         run: npm i -g npm@latest
 
-      - name: "📦 install dependencies"
-        uses: bahmutov/npm-install@v1
-
       - name: "📊 repository visualizer"
         id: diagram
         uses: githubocto/repo-visualizer@0.7.1
