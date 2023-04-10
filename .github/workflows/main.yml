@@ -24,7 +24,7 @@ jobs:
         run: npm i -g npm@latest
 
       - name: "🚀 static app"
-        run: npm run build
+        run: git add README.md
 
       - name: "📂 production artifacts"
         uses: actions/upload-artifact@v2
