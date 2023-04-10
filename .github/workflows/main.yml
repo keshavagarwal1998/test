@@ -16,25 +16,4 @@ jobs:
       - name: "☁️ checkout repository"
         uses: actions/checkout@v2
 
-      - name: "🔧 setup node"
-        uses: actions/setup-node@v2.1.5
-        with:
-          node-version: 16
-
-      - name: "🔧 install npm@latest"
-        run: npm i -g npm@latest
-
      
-  
-  cleanup:
-    name: Cleanup actions
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - name: "♻️ remove build artifacts"
-        uses: geekyeggo/delete-artifact@v1
-        with:
-          name: |
-            build
-            docker
-            diagram
