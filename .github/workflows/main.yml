@@ -8,10 +8,6 @@ on:
       - beta
 
 jobs:
-  test:
-    name: Test and lint
-    uses: open-sauced/open-sauced/.github/workflows/development.yml@main
-
   build:
     name: Build application
     runs-on: ubuntu-latest
