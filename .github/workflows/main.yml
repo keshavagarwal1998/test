@@ -62,12 +62,6 @@ jobs:
           name: diagram
           path: public/
 
-      - name: "🚀 release"
-        id: semantic-release
-        uses: open-sauced/release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   cleanup:
     name: Cleanup actions
     needs:
