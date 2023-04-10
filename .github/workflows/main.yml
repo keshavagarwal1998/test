@@ -25,47 +25,9 @@ jobs:
         run: npm i -g npm@latest
 
      
-  release:
-    environment:
-      name: production
-      url: https://github.com/${{ github.repository }}/releases/tag/${{ steps.semantic-release.outputs.release-tag }}
-    name: Semantic release
-    needs:
-      - build
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - name: "☁️ checkout repository"
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: "♻️ clean up artifact paths"
-        run: |
-          rm -rf public/diagram.svg
-          rm -rf supabase/diagrams/
-
-      - name: "📦 load tag"
-        run: |
-          docker load --input /tmp/docker.tar
-          docker image ls -a
-
-      - name: "📂 download build artifacts"
-        uses: actions/download-artifact@v2
-        with:
-          name: build
-          path: build
-
-      - name: "📂 download diagram artifacts"
-        uses: actions/download-artifact@v2
-        with:
-          name: diagram
-          path: public/
-
+  
   cleanup:
     name: Cleanup actions
-    needs:
-      - release
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
